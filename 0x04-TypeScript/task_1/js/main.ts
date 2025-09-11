@@ -27,12 +27,12 @@ const teacher2: Teacher = {
   Subject: "Maths"
 };
 
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "Adesewa",
   lastName: "Adegbite",
   fullTimeEmployee: true,
@@ -40,6 +40,17 @@ const director1: Directors = {
   numberOfReports: 10
 };
 
+const director2: Director = {
+  firstName: "Nadia",
+  lastName: "Johnson",
+  fullTimeEmployee: false,
+  yearsOfExperience: 15,
+  location: "Abuja",
+  numberOfReports: 25, // required
+  contract: true, // extra property allowed from Teacher
+};
+
 console.log(teacher1);
 console.log(teacher2);
 console.log(director1);
+console.log(director2);
