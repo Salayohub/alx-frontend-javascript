@@ -19,9 +19,9 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
-};
+}
 
 
 
@@ -72,4 +72,3 @@ console.log(teacher2);
 console.log(director1);
 console.log(director2);
 console.log(printTeacher("Adedamola", "Atinuke")); // Output: A. Atinuke
-console.log(printTeacher("opeyemi", "oluwadesire")); // Output: O. oluwadesire
