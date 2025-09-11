@@ -8,11 +8,6 @@ interface Teacher {
   [key: string]: any;
 }
 
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-
-
 const teacher1: Teacher = {
   firstName: "Adedamola",
   lastName: "Atinuke",
@@ -31,6 +26,11 @@ const teacher2: Teacher = {
   contract: true,
   Subject: "Maths"
 };
+
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
 
 const director1: Directors = {
   firstName: "Adesewa",
