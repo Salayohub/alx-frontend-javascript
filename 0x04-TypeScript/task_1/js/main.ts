@@ -32,5 +32,14 @@ const teacher2: Teacher = {
   Subject: "Maths"
 };
 
+const director1: Directors = {
+  firstName: "Adesewa",
+  lastName: "Adegbite",
+  fullTimeEmployee: true,
+  location: "Lagos",
+  numberOfReports: 10
+};
+
 console.log(teacher1);
 console.log(teacher2);
+console.log(director1);
