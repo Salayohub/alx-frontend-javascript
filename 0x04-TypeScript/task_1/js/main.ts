@@ -1,48 +1,30 @@
-interface Student {
+interface Teacher {
   firstName: string;
   lastName: string;
-  age: number;
+  fullTimeEmployee: boolean;
+  yearsOfExperience: number;
   location: string;
+  contract?: boolean;
+  [key: string]: any;
 }
 
-const student1: Student = {
-  firstName: "Adamu",
-  lastName: "Dangote",
-  age: 20,
-  location: "Abuja"
+
+const teacher1: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  yearsOfExperience: 5,
+  location: "New York",
+  contract: false
 };
 
-const student2: Student = {
+const teacher2: Teacher = {
   firstName: "Jane",
-  lastName: "Adeyanju",
-  age: 22,
-  location: "lagos"
+  lastName: "Smith",
+  fullTimeEmployee: false,
+  yearsOfExperience: 3,
+  location: "San Francisco"
 };
 
-const studentsList: Student[] = [student1, student2];
-
-const table = document.createElement("table");
-const headerRow = document.createElement("tr");
-
-const headers = ["First Name", "Location"];
-headers.forEach(headerText => {
-  const header = document.createElement("th");
-  header.textContent = headerText;
-  headerRow.appendChild(header);
-});
-
-table.appendChild(headerRow);
-
-studentsList.forEach(student => {
-  const row = document.createElement("tr");
-
-  const firstNameCell = document.createElement("td");
-  firstNameCell.textContent = student.firstName;
-  row.appendChild(firstNameCell);
-
-  const locationCell = document.createElement("td");
-  locationCell.textContent = student.location;
-  row.appendChild(locationCell);
-
-  table.appendChild(row);
-});
+console.log(teacher1);
+console.log(teacher2);
