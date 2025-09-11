@@ -1,3 +1,4 @@
+// Teacher interface
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -8,6 +9,23 @@ interface Teacher {
   [key: string]: any;
 }
 
+// Director interface extending Teacher interface
+interface Director extends Teacher {
+  numberOfReports: number;
+}
+
+// Function type interface
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+
+
+// Teacher objects
 const teacher1: Teacher = {
   firstName: "Adedamola",
   lastName: "Atinuke",
@@ -27,11 +45,7 @@ const teacher2: Teacher = {
   Subject: "Maths"
 };
 
-interface Director extends Teacher {
-  numberOfReports: number;
-}
-
-
+// Director objects
 const director1: Director = {
   firstName: "Adesewa",
   lastName: "Adegbite",
@@ -50,7 +64,11 @@ const director2: Director = {
   contract: true, // extra property allowed from Teacher
 };
 
+
+
+// Testing the objects and function
 console.log(teacher1);
 console.log(teacher2);
 console.log(director1);
 console.log(director2);
+console.log(printTeacher("Adedamola", "Atinuke")); // Output: A. Atinuke
