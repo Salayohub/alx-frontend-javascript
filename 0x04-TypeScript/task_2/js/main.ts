@@ -1,12 +1,12 @@
 // Define the Director interface with the specified methods
-interface Director {
+interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
 // Define the Teacher interface with the specified methods
-interface Teacher {
+interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
@@ -14,7 +14,7 @@ interface Teacher {
 }
 
 // Implement the Director class
-class DirectorClass implements Director {
+class DirectorClass implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
@@ -27,7 +27,7 @@ class DirectorClass implements Director {
 }
 
 // implimenting the teacher class
-class TeacherClass implements Teacher {
+class TeacherClass implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
   }
@@ -39,10 +39,10 @@ class TeacherClass implements Teacher {
   }
 }
 
-function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === "number" && salary < 500) {
-    return new TeacherClass();
-  } else {
+function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
+if (typeof salary === "number" && salary < 500) {
+  return new TeacherClass();}
+  else {
     return new DirectorClass();
   }
 }
