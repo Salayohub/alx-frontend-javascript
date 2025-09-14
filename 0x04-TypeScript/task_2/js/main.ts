@@ -14,7 +14,7 @@ interface TeacherInterface {
 }
 
 // Implement the Director class
-class DirectorClass implements DirectorInterface {
+class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
@@ -27,7 +27,7 @@ class DirectorClass implements DirectorInterface {
 }
 
 // implimenting the teacher class
-class TeacherClass implements TeacherInterface {
+class Teacher implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
   }
@@ -40,14 +40,37 @@ class TeacherClass implements TeacherInterface {
 }
 
 // Function the checker wants
-function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
+function createEmployee(salary: number): DirectorInterface | TeacherInterface {
   if (salary < 500) {
     return new Teacher();
   }
   return new Director();
 }
 
+// Type predicate
+function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
+  return employee instanceof Director;
+}
+
+// Execute work
+function executeWork(employee: DirectorInterface | TeacherInterface): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  }
+  return employee.workTeacherTasks();
+}
+
+// String literal type
+type Subjects = "Math" | "History";
+
+// Function teachClass
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  }
+  return "Teaching History";
+}
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
-console.log(createEmployee("$500"));
+console.log(createEmployee(500));
